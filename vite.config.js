@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Load environment variables
 const backendUrl = 'https://prjtesting-production.up.railway.app';
 
 export default defineConfig({
