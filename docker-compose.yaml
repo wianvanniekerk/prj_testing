@@ -1,0 +1,18 @@
+services:
+  webapp:
+    build: .
+    container_name: drone_c
+    ports:
+      - "8000:8000"
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "3000:27017"
