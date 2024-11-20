@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    host:'0.0.0.0',
+    host:'https://prjtesting-production.up.railway.app/',
     port:5173,
     watch: {
       usePolling: true, 
