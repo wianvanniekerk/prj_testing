@@ -1,15 +1,19 @@
 FROM node:20.17.0-alpine
 
-RUN npm install -g nodemon
-
 WORKDIR /app
 
 COPY ./package*.json ./
-
 RUN npm install
+
+WORKDIR /app/client
+COPY ./client/package*.json ./
+RUN npm install
+RUN npm run build
+
+WORKDIR /app
 
 COPY . .
 
-EXPOSE 8000 5173
+EXPOSE 8000
 
-CMD ["npm", "run", "dev:all"]
+CMD ["npm", "start"]
