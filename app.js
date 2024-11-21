@@ -3,6 +3,7 @@ import seedDatabase from "./server/js/seed.js";
 import app from "./server/config/express.js";
 import dotenv from "dotenv";
 import express from "express";
+import path from "path";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 // import { Server } from "socket.io";
