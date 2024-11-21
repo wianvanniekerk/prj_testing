@@ -2,6 +2,7 @@ import connectDB from "./server/config/db.js";
 import seedDatabase from "./server/js/seed.js";
 import app from "./server/config/express.js";
 import dotenv from "dotenv";
+import express from "express";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 // import { Server } from "socket.io";
@@ -9,6 +10,12 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: join(__dirname, ".env") });
+
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
 
 const PORT = process.env.PORT || 8000;
 
