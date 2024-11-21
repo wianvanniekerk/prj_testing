@@ -1,27 +1,25 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+const backendUrl = 'https://prjtesting-production.up.railway.app';
+
 export default defineConfig({
   plugins: [react()],
   server: {
-    host:'0.0.0.0',
-    port:5173,
+    host: '0.0.0.0',
+    port: 5173,
     watch: {
-      usePolling: true, 
+      usePolling: true,
     },
     proxy: {
-      '/api': 'http://webapp:8000',
-      '/api/register': 'http://webapp:8000',
-      '/api/login': 'http://webapp:8000',
-      '/api/stats/drones': 'http://webapp:8000',
-      '/api/settings/updateUser': 'http://webapp:8000',
-      '/api/settings/updateUserPassword': 'http://webapp:8000',
-      '/api/settings/getUser': 'http://webapp:8000',
-      // '/socket.io': {
-      //   target: 'http://webapp:8000', 
-      //   ws: true,
-      // }
-      '/api/data': 'http://webapp:8000'
+      '/api': backendUrl,
+      '/api/register': backendUrl,
+      '/api/login': backendUrl,
+      '/api/stats/drones': backendUrl,
+      '/api/settings/updateUser': backendUrl,
+      '/api/settings/updateUserPassword': backendUrl,
+      '/api/settings/getUser': backendUrl,
+      '/api/data': backendUrl,
     },
   },
 })
