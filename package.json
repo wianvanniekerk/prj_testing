@@ -7,7 +7,7 @@
     "start": "nodemon app.js",
     "dev": "vite --host",
     "dev:all": "concurrently \"npm run start\" \"npm run dev\"",
-    "build": "vite build",
+    "build": "vite build --root ./",
     "seed": "node src/js/seed.js",
     "test": "jest",
     "test:watch": "jest --watch",
