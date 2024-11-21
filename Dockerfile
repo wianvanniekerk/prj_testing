@@ -8,6 +8,7 @@ RUN npm install
 WORKDIR /app/client
 COPY ./client/package*.json ./
 RUN npm install
+COPY ./client ./
 RUN npm run build
 
 WORKDIR /app
